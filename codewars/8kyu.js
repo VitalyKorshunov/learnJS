@@ -183,3 +183,43 @@ function invert(array) {
 
 
 
+// 7. ❓❓❓❓❓❓
+/*
+https://www.codewars.com/kata/57f24e6a18e9fad8eb000296/train/javascript
+
+NOT EASY
+
+I love you, a little , a lot, passionately ... not at all
+
+Who remembers back to their time in the schoolyard, when girls would take a flower and 
+tear its petals, saying each of the following phrases each time a petal was torn:
+
+"I love you"
+"a little"
+"a lot"
+"passionately"
+"madly"
+"not at all"
+If there are more than 6 petals, you start over with "I love you" for 7 petals, "a little" for 8 petals and so on.
+
+When the last petal was torn there were cries of excitement, dreams, surging thoughts and emotions.
+*/
+
+// SOLUTION ✅✅✅✅✅✅
+
+function howMuchILoveYou(nbPetals) {
+	let phrases = ["I love you", "a little", "a lot", "passionately", "madly", "not at all"];
+	
+	while (nbPetals > phrases.length) {
+		nbPetals -= phrases.length;      
+	}
+
+	nbPetals = (nbPetals > 0) ? nbPetals -= 1 : nbPetals;
+	return phrases[nbPetals];
+}
+
+
+
+
+
+
