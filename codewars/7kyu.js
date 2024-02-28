@@ -35,7 +35,7 @@ function removeSmallest(numbers) {
 	let sortNumbers = numbers.slice(0);
 
 	sortNumbers.sort((a, b) => a - b)
-    
+
 	if (copyNumbers.includes(sortNumbers[0])) copyNumbers.splice(copyNumbers.indexOf(sortNumbers[0]), 1);
 	if (copyNumbers.length == 1) copyNumbers.length = [0]
 	
@@ -43,3 +43,26 @@ function removeSmallest(numbers) {
 }
 
 
+// 2. ❓❓❓❓❓❓
+/*
+https://www.codewars.com/kata/5783d8f3202c0e486c001d23/train/javascript
+
+Convert an array of strings to array of numbers
+
+Oh no!
+Some really funny web dev gave you a sequence of numbers from his API response as an sequence of strings!
+
+You need to cast the whole array to the correct type.
+
+Create the function that takes as a parameter a sequence of numbers represented as strings and outputs a sequence of numbers.
+
+ie:["1", "2", "3"] to [1, 2, 3]
+
+Note that you can receive floats as well.
+*/
+
+// SOLUTION ✅✅✅✅✅✅
+
+function toNumberArray(stringarray){
+    return stringarray.map(num => +num);
+}
