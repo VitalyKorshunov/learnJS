@@ -27,4 +27,4 @@ function getSecondsToday() {
   
     let diff = now - today; // разница в миллисекундах
     return Math.round(diff / 1000); // получаем секунды
-  }
+}
