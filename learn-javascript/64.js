@@ -27,8 +27,8 @@ let list = {
 
 function printList(list) {
     for (let [key, value] of Object.entries(list)) {
-        if (value == null) {console.log('null'); break};
-        if (key == 'next') {console.log('next'); printList(value); break};
+        if (value == null) break;
+        if (key == 'next') {printList(value); break};
         console.log(value);
     }
 }
