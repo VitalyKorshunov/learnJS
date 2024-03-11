@@ -38,7 +38,7 @@ function removeSmallest(numbers) {
 
 	if (copyNumbers.includes(sortNumbers[0])) copyNumbers.splice(copyNumbers.indexOf(sortNumbers[0]), 1);
 	if (copyNumbers.length == 1) copyNumbers.length = [0]
-	
+
 	return copyNumbers;
 }
 
@@ -63,15 +63,14 @@ Note that you can receive floats as well.
 
 // SOLUTION ✅✅✅✅✅✅
 
-function toNumberArray(stringarray){
-    return stringarray.map(num => +num);
+function toNumberArray(stringarray) {
+	return stringarray.map(num => +num);
 }
 
 // Best
 
-function toNumberArray(stringarray)
-{
-  return stringarray.map(parseFloat);
+function toNumberArray(stringarray) {
+	return stringarray.map(parseFloat);
 }
 
 
@@ -98,7 +97,7 @@ each word will have enough letters.
 
 // SOLUTION ✅✅✅✅✅✅
 
-function nthChar(words){
+function nthChar(words) {
 	return words.reduce((newWord, item, index) => newWord + item[index], '')
 }
 
@@ -151,10 +150,9 @@ Finally ,The Fifth element 900 is the product of all array's elements except the
 
 // SOLUTION ✅✅✅✅✅✅
 
-function productArray(numbers)
-{
-  let sum = numbers.reduce((x, y) => x * y);
-  return numbers.map(x => sum / x);
+function productArray(numbers) {
+	let sum = numbers.reduce((x, y) => x * y);
+	return numbers.map(x => sum / x);
 }
 
 
@@ -190,14 +188,14 @@ function minSum(arr) {
 	let numsMax = []
 	let sum = [];
 	arr.sort((a, b) => a - b);
-  
+
 	numsMin = arr.slice(0, arr.length / 2)
 	numsMax = arr.slice(arr.length / 2, arr.length).reverse()
-  
+
 	for (let i = 0; i < numsMin.length; i++) {
 		sum.push(numsMax[i] * numsMin[i])
 	}
-  
+
 	return sum.reduce((acc, elem) => acc + elem, 0)
 }
 
@@ -206,6 +204,8 @@ function minSum(arr) {
 function minSum(arr) {
 	return arr.sort((a, b) => a - b).reduce((pre, val) => pre + val * arr.pop(), 0);
 }
+
+
 
 // 6. ❓❓❓❓❓❓
 /*
@@ -243,9 +243,11 @@ Since the size (k) equal 3 , then the subsequence of size 3 whose gives product 
 
 // SOLUTION ✅✅✅✅✅✅
 
-function maxProduct(numbers, size){
+function maxProduct(numbers, size) {
 	return numbers.sort((a, b) => b - a).slice(0, size).reduce((acc, num) => acc * num);
 }
+
+
 
 // 7. ❓❓❓❓❓❓
 /*
@@ -306,21 +308,55 @@ Note : The last element 2 is greater than the sum of its right elements (abstrac
 // SOLUTION ✅✅✅✅✅✅
 
 function arrayLeaders(numbers) {
-    let map = [];
+	let map = [];
 
-    numbers.forEach((elem, index) => {
-        let tmp = numbers.slice(index + 1)
-        tmp = tmp.reduce((sum, item) => sum + item, 0);
+	numbers.forEach((elem, index) => {
+		let tmp = numbers.slice(index + 1)
+		tmp = tmp.reduce((sum, item) => sum + item, 0);
 
-        if (elem > tmp) {
-            map.push(elem);
-        }
-    })
+		if (elem > tmp) {
+			map.push(elem);
+		}
+	})
 
-    return map;
+	return map;
 }
 
 
 // Best
 let arrayLeaders = numbers => {
-return numbers.filter((a, i) => numbers.slice(i + 1).reduce((sum, b) => sum + b, 0) < a)}
+	return numbers.filter((a, i) => numbers.slice(i + 1).reduce((sum, b) => sum + b, 0) < a)
+}
+
+
+
+// 8. ❓❓❓❓❓❓
+/*
+https://www.codewars.com/kata/6512b3775bf8500baea77663/javascript
+
+From A to Z
+
+Given a string indicating a range of letters, return a string which includes all the 
+letters in that range, including the last letter.
+Note that if the range is given in capital letters, return the string in capitals also!
+
+Examples
+"a-z" ➞ "abcdefghijklmnopqrstuvwxyz"
+"h-o" ➞ "hijklmno"
+"Q-Z" ➞ "QRSTUVWXYZ"
+"J-J" ➞ "J"
+Notes
+A hyphen will separate the two letters in the string.
+You don't need to worry about error handling in this kata (i.e. both letters will be 
+the same case and the second letter will not be before the first alphabetically).
+*/
+
+// SOLUTION ✅✅✅✅✅✅
+
+function gimmeTheLetters(sp) {
+	let str = "";
+	for (let i = sp.charCodeAt(0); i <= sp.charCodeAt(2); i++) {
+		str += (String.fromCharCode(i))
+	}
+	return str
+}
