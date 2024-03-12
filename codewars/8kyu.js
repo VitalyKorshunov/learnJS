@@ -15,7 +15,7 @@ you would want to show your friends?
 // SOLUTION ✅✅✅✅✅✅
 
 function greet() {
-    return 'hello world!';
+  return 'hello world!';
 }
 
 
@@ -38,7 +38,7 @@ _if(true, function(){console.log("True")}, function(){console.log("false")})
 // SOLUTION ✅✅✅✅✅✅
 
 function _if(bool, func1, func2) {
-    (bool) ? func1() : func2();
+  (bool) ? func1() : func2();
 }
 
 
@@ -68,11 +68,11 @@ Hint: Don't forget to check for bad values like null/undefined
 // SOLUTION ✅✅✅✅✅✅
 
 function countSheeps(sheep) {
-    let qty = 0;
-    sheep.forEach((element) => {
-      (element === true) ? qty++ : qty;
-    })
-    return qty
+  let qty = 0;
+  sheep.forEach((element) => {
+    (element === true) ? qty++ : qty;
+  })
+  return qty
 }
 
 /*
@@ -108,8 +108,8 @@ Good luck! Your team knows they can count on you!
 
 // SOLUTION ✅✅✅✅✅✅
 
-function formatMoney(amount){
-  
+function formatMoney(amount) {
+
   return `$${amount.toFixed(2)}`
 }
 
@@ -124,7 +124,7 @@ Given a logarithm base X and two values A and B, return a sum of logratihms with
 
 // SOLUTION ✅✅✅✅✅✅
 
-function logs(x , a, b) {
+function logs(x, a, b) {
   return Math.log(a) / Math.log(x) + Math.log(b) / Math.log(x)
 }
 
@@ -208,14 +208,14 @@ When the last petal was torn there were cries of excitement, dreams, surging tho
 // SOLUTION ✅✅✅✅✅✅
 
 function howMuchILoveYou(nbPetals) {
-	let phrases = ["I love you", "a little", "a lot", "passionately", "madly", "not at all"];
-	
-	while (nbPetals > phrases.length) {
-		nbPetals -= phrases.length;      
-	}
+  let phrases = ["I love you", "a little", "a lot", "passionately", "madly", "not at all"];
 
-	nbPetals = (nbPetals > 0) ? nbPetals -= 1 : nbPetals;
-	return phrases[nbPetals];
+  while (nbPetals > phrases.length) {
+    nbPetals -= phrases.length;
+  }
+
+  nbPetals = (nbPetals > 0) ? nbPetals -= 1 : nbPetals;
+  return phrases[nbPetals];
 }
 
 // BEST
@@ -230,7 +230,7 @@ const phrases = [
 ]
 
 function howMuchILoveYou(n) {
-   return phrases[(n - 1) % phrases.length] 
+  return phrases[(n - 1) % phrases.length]
 }
 
 
@@ -267,7 +267,7 @@ Advanced users may find this extremely easy and can easily write this in one lin
 
 // SOLUTION ✅✅✅✅✅✅
 
-function sum (numbers) {
+function sum(numbers) {
   "use strict";
   return numbers.reduce((sum, num) => (sum + num), 0);
 };
@@ -315,7 +315,7 @@ number by 5 raised to the number of digits of each numbers, so, for example:
 
 // SOLUTION ✅✅✅✅✅✅
 
-function multiply(number){
+function multiply(number) {
   return number * 5 ** Math.abs(number).toString().length;
 }
 
@@ -344,4 +344,27 @@ function between(a, b) {
     arr.push(i);
   }
   return arr;
+}
+
+
+
+// 13. ❓❓❓❓❓❓
+/*
+https://www.codewars.com/kata/51c8991dee245d7ddf00000e/train/javascript
+
+Reversed Words
+
+Complete the solution so that it reverses all of the words within the string passed in.
+
+Words are separated by exactly one space and there are no leading or trailing spaces.
+
+Example(Input --> Output):
+
+"The greatest victory is that which requires no battle" --> "battle no requires which that is victory greatest The"
+*/
+
+// SOLUTION ✅✅✅✅✅✅
+
+function reverseWords(str) {
+  return str.split(' ').reverse().join(' ');
 }
