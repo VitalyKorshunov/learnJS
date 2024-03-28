@@ -175,3 +175,80 @@ var encryptThis = function (text) {
 const encryptThis = text =>
     text.replace(/\b\w(\w?)(\w*?)(\w?)\b/g, (word, a, mid, b) =>
         word.charCodeAt(0) + b + mid + a);
+
+
+
+// 5. ❓❓❓❓❓❓
+/*
+https://www.codewars.com/kata/54bf1c2cd5b56cc47f0007a1/train/javascript
+
+Counting Duplicates
+
+Count the number of Duplicates
+Write a function that will return the count of distinct case-insensitive alphabetic 
+characters and numeric digits that occur more than once in the input string. The input 
+string can be assumed to contain only alphabets (both uppercase and lowercase) and numeric digits.
+
+Example
+"abcde" -> 0 # no characters repeats more than once
+"aabbcde" -> 2 # 'a' and 'b'
+"aabBcde" -> 2 # 'a' occurs twice and 'b' twice (`b` and `B`)
+"indivisibility" -> 1 # 'i' occurs six times
+"Indivisibilities" -> 2 # 'i' occurs seven times and 's' occurs twice
+"aA11" -> 2 # 'a' and '1'
+"ABBA" -> 2 # 'A' and 'B' each occur twice
+*/
+
+// SOLUTION ✅✅✅✅✅✅
+// O(n log n)
+
+function duplicateCount(text) {
+    let count = 0;
+    let textArr = text.toLowerCase().split('');
+    textArr.sort((a, b) => a.localeCompare(b));
+
+    while (textArr.length) {
+        let lastLetter = textArr.pop();
+
+        if (textArr.at(-1) === lastLetter) {
+            count++;
+
+            while (textArr.at(-1) === lastLetter) {
+                textArr.pop();
+            }
+        }
+    }
+    return count;
+}
+
+// O(n)
+
+function duplicateCount(text) {
+    const charCount = {};
+    let count = 0;
+
+    // Приведем все символы к нижнему регистру для учета повторов
+    text = text.toLowerCase();
+
+    // Пройдем по каждому символу в строке
+    for (let char of text) {
+        // Если символ уже встречался, увеличим его счетчик
+        if (charCount[char]) {
+            charCount[char]++;
+        } else {
+            // Иначе установим счетчик для символа равным 1
+            charCount[char] = 1;
+        }
+    }
+
+    // Посчитаем количество символов, у которых счетчик больше 1
+    for (let char in charCount) {
+        if (charCount[char] > 1) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
+
