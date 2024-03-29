@@ -1388,3 +1388,22 @@ function isIsogram(str) {
 	let setStr = new Set(str);
 	return str.length === setStr.size;
 }
+
+
+
+// 31. ❓❓❓❓❓❓
+/*
+https://www.codewars.com/kata/57cebe1dc6fdc20c57000ac9/train/javascript
+
+Shortest Word
+
+Simple, given a string of words, return the length of the shortest word(s).
+
+String will never be empty and you do not need to account for different data types.
+*/
+
+// SOLUTION ✅✅✅✅✅✅
+
+function findShort(s) {
+	return s.split(' ').reduce((res, word) => res = (res < word.length) ? res : word.length, Infinity)
+}
