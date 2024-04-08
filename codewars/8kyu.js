@@ -771,3 +771,46 @@ n=-5, m=5:  0
 function paperwork(n, m) {
   return (n < 0 || m < 0) ? 0 : n * m;
 }
+
+
+
+// 29. ❓❓❓❓❓❓
+/*
+https://www.codewars.com/kata/55f9bca8ecaa9eac7100004a/train/javascript
+
+Beginner Series #2 Clock
+
+Clock shows h hours, m minutes and s seconds after midnight.
+
+Your task is to write a function which returns the time since midnight in milliseconds.
+
+Example:
+h = 0
+m = 1
+s = 1
+
+result = 61000
+Input constraints:
+
+0 <= h <= 23
+0 <= m <= 59
+0 <= s <= 59
+*/
+
+// SOLUTION ✅✅✅✅✅✅
+
+function past(h, m, s) {
+  const hToMs = h * 60 * 60 * 1000;
+  const mToMs = m * 60 * 1000;
+  const sToMs = s * 1000;
+  const totalMs = hToMs + mToMs + sToMs;
+  return totalMs;
+}
+
+// Alternative
+
+function past(h, m, s) {
+  let midnightDate = new Date().setHours(0, 0, 0, 0);
+  let specifiedDate = new Date().setHours(h, m, s, 0);
+  return specifiedDate - midnightDate;
+}
