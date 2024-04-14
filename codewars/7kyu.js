@@ -1547,24 +1547,25 @@ function partlist(arr) {
 
 
 
-// 35. ❓❓❓❓❓❓
+// 36. ❓❓❓❓❓❓
 /*
-https://www.codewars.com/kata/56f3a1e899b386da78000732/train/javascript
+https://www.codewars.com/kata/54ff3102c1bad923760001f3/train/javascript
 
-Parts of a list
+Vowel Count
 
-Write a function partlist that gives all the ways to divide a list (an array) of at least two elements into two non-empty parts.
 
-Each two non empty parts will be in a pair (or an array for languages without tuples or a structin C - C: see Examples test Cases - )
-Each part will be in a string
-Elements of a pair must be in the same order as in the original array.
-Examples of returns in different languages:
-a = ["az", "toto", "picaro", "zone", "kiwi"] -->
-[["az", "toto picaro zone kiwi"], ["az toto", "picaro zone kiwi"], 
-["az toto picaro", "zone kiwi"], ["az toto picaro zone", "kiwi"]] 
+Return the number (count) of vowels in the given string.
 
-Note
-You can see other examples for each language in "Your test cases"
+We will consider a, e, i, o, u as vowels for this Kata (but not y).
+
+The input string will only consist of lower case letters and/or spaces.
 */
 
 // SOLUTION ✅✅✅✅✅✅
+
+function getCount(str) {
+	const vowelsArr = ['a', 'e', 'i', 'o', 'u'];
+
+	return str.split('').filter((letter) => vowelsArr.includes(letter)).length;
+
+}
