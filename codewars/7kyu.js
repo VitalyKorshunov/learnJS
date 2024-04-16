@@ -598,7 +598,8 @@ https://www.codewars.com/kata/5a91a7c5fd8c061367000002/train/javascript
 Minimum Steps (Array Series #6)
 
 Task
-Given an array of N integers, you have to find how many times you have to add up the smallest numbers in the array until their Sum becomes greater or equal to K.
+Given an array of N integers, you have to find how many times you have to add up the smallest numbers in 
+the array until their Sum becomes greater or equal to K.
 Notes:
 List size is at least 3.
 All numbers will be positive.
@@ -620,7 +621,8 @@ minimumSteps({19,98,69,28,75,45,17,98,67}, 464)  ==>  return (8)
 Explanation:
 We add two smallest elements (19 + 17), their sum is 36 .
 Then we add the next smallest number to it (36 + 28) , so the sum becomes 64 .
-We need to keep doing this until the sum becomes greater or equal to K (464 in this case), which will require 8 Steps .
+We need to keep doing this until the sum becomes greater or equal to K (464 in this case), which will require 
+8 Steps .
 
 Expected Time Complexity O(n Log n)
 */
@@ -867,7 +869,8 @@ https://www.codewars.com/kata/5a53a17bfd56cb9c14000003/train/javascript
 Disarium Number (Special Numbers Series #3)
 
 Definition
-Disarium number is the number that The sum of its digits powered with their respective positions is equal to the number itself.
+Disarium number is the number that The sum of its digits powered with their respective positions 
+is equal to the number itself.
 
 Task
 Given a number, Find if it is Disarium or not .
@@ -990,11 +993,11 @@ All the number's digits formed from the interval [0:5] digits .
 
 specialNumber(39) ==> return "NOT!!"
 Explanation:
-Although, there is a digit (3) Within the interval But the second digit is not (Must be ALL The Number's Digits ) .
+Although, there is a digit (3) Within the interval But the second digit is not (Must be ALL The Number's Digits ).
 
 specialNumber(59) ==> return "NOT!!"
 Explanation:
-Although, there is a digit (5) Within the interval But the second digit is not (Must be ALL The Number's Digits ) .
+Although, there is a digit (5) Within the interval But the second digit is not (Must be ALL The Number's Digits ).
 
 specialNumber(513) ==> return "Special!!"
 specialNumber(709) ==> return "NOT!!"
@@ -1272,7 +1275,9 @@ https://www.codewars.com/kata/56747fd5cb988479af000028/train/javascript
 
 Get the Middle Character
 
-You are going to be given a word. Your job is to return the middle character of the word. If the word's length is odd, return the middle character. If the word's length is even, return the middle 2 characters.
+You are going to be given a word. Your job is to return the middle character of the word. 
+If the word's length is odd, return the middle character. If the word's length is even, return 
+the middle 2 characters.
 
 #Examples:
 
@@ -1285,7 +1290,9 @@ Kata.getMiddle("middle") should return "dd"
 Kata.getMiddle("A") should return "A"
 #Input
 
-A word (string) of length 0 < str < 1000 (In javascript you may get slightly more than 1000 in some test cases due to an error in the test cases). You do not need to test for this. This is only here to tell you that you do not need to worry about your solution timing out.
+A word (string) of length 0 < str < 1000 (In javascript you may get slightly more than 1000 
+	in some test cases due to an error in the test cases). You do not need to test for this. 
+	This is only here to tell you that you do not need to worry about your solution timing out.
 
 #Output
 
@@ -1370,7 +1377,9 @@ https://www.codewars.com/kata/54ba84be607a92aa900000f1/train/javascript
 
 Isograms
 
-An isogram is a word that has no repeating letters, consecutive or non-consecutive. Implement a function that determines whether a string that contains only letters is an isogram. Assume the empty string is an isogram. Ignore letter case.
+An isogram is a word that has no repeating letters, consecutive or non-consecutive. Implement a 
+function that determines whether a string that contains only letters is an isogram. Assume the 
+empty string is an isogram. Ignore letter case.
 
 Example: (Input --> Output)
 
@@ -1520,9 +1529,11 @@ https://www.codewars.com/kata/56f3a1e899b386da78000732/train/javascript
 
 Parts of a list
 
-Write a function partlist that gives all the ways to divide a list (an array) of at least two elements into two non-empty parts.
+Write a function partlist that gives all the ways to divide a list (an array) of at least two elements 
+into two non-empty parts.
 
-Each two non empty parts will be in a pair (or an array for languages without tuples or a structin C - C: see Examples test Cases - )
+Each two non empty parts will be in a pair (or an array for languages without tuples or a structin C - C: 
+	see Examples test Cases - )
 Each part will be in a string
 Elements of a pair must be in the same order as in the original array.
 Examples of returns in different languages:
@@ -1568,4 +1579,62 @@ function getCount(str) {
 
 	return str.split('').filter((letter) => vowelsArr.includes(letter)).length;
 
+}
+
+
+
+// 37. ❓❓❓❓❓❓
+/*
+https://www.codewars.com/kata/63cbe409959401003e09978b/train/javascript
+
+Set Reducer
+
+Set Reducer
+Intro
+These arrays are too long! Let's reduce them!
+
+Description
+Write a function that takes in an array of integers from 0-9, and returns a new array:
+
+Numbers with no identical numbers preceding or following it returns a 1: 2, 4, 9  => 1, 1, 1
+Sequential groups of identical numbers return their count: 6, 6, 6, 6 => 4
+Example
+
+[0, 4, 6, 8, 8, 8, 5, 5, 7] => [1, 1, 1, 3, 2, 1]
+
+Your function should then repeat the process on the resulting array, and on the resulting
+array of that, until it returns a single integer:
+
+[0, 4, 6, 8, 8, 8, 5, 5, 7] =>  [1, 1, 1, 3, 2, 1] => [3, 1, 1, 1] => [1, 3] => [1, 1] => [2]
+
+When your function has reduced the array to a single integer following these rules, it should return that integer.
+
+[2] => 2
+
+Rules and assertions
+All test arrays will be 2+ in length
+All integers in the test arrays will be positive numbers from 0 - 9
+You should return an integer, not an array with 1 element
+*/
+
+// SOLUTION ✅✅✅✅✅✅
+
+function setReducer(input) {
+	if (input.length == 1) {
+		return input[0];
+	} else {
+		const result = [];
+		let repeats = 1;
+
+		for (let i = 1; i <= input.length; i++) {
+			if (input[i] === input[i - 1]) {
+				repeats++;
+			} else {
+				result.push(repeats)
+				repeats = 1;
+			}
+		}
+
+		return setReducer(result);
+	}
 }

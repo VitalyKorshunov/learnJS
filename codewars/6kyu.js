@@ -272,6 +272,7 @@ Examples
 */
 
 // SOLUTION ✅✅✅✅✅✅
+// Obj
 
 function findOdd(numsArray) {
     const numObj = {};
@@ -282,5 +283,17 @@ function findOdd(numsArray) {
 
     for (let num in numObj) {
         if (numObj[num] % 2) return +num;
+    }
+}
+
+// Map
+
+function findOdd(A) {
+    const map = new Map();
+
+    A.forEach((num) => (map.has(num)) ? map.set(num, map.get(num) + 1) : map.set(num, 1));
+
+    for (let [key, value] of map.entries()) {
+        if (value % 2) return key;
     }
 }
