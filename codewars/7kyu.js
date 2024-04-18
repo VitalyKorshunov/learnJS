@@ -1673,7 +1673,7 @@ https://www.codewars.com/kata/569512b7707bc1b88200002f/train/javascript
 
 Recursion #2 - Fibonacci
 
- Do you know recursion?
+Do you know recursion?
 This is a kata series that you can only solve using recursion.
 ##2 - Fibonacci number
 
@@ -1699,3 +1699,32 @@ const fibonacci = n => {
 		return fibonacci(n - 1) + fibonacci(n - 2);
 	}
 };
+
+
+
+// 40. ❓❓❓❓❓❓
+/*
+https://www.codewars.com/kata/5594463eaf1701909c0000d4/train/javascript
+
+Sum ALL the arrays!
+
+You are given an array of values.
+Sum every number value in the array, and any nested arrays (to any depth).
+Ignore all other types of values.
+*/
+
+// SOLUTION ✅✅✅✅✅✅
+
+function arraySum(arr) {
+	let sum = 0;
+
+	for (elem of arr) {
+		if (Array.isArray(elem)) {
+			sum += arraySum(elem);
+		} else if (typeof elem === 'number') {
+			sum += elem;
+		}
+	}
+
+	return sum;
+}
