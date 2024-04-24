@@ -64,7 +64,6 @@ function formatTime(time) {
 /*
 https://www.codewars.com/kata/513e08acc600c94f01000001/train/javascript
 
-
 RGB To Hex Conversion
 
 The rgb function is incomplete. Complete it so that passing in RGB decimal values will result in a 
@@ -94,4 +93,38 @@ function convertToHex(num) {
 function range(num) {
     return ((num < 0) ? '00' :
         (num > 255) ? 'FF' : num);
+}
+
+
+
+// 4. ❓❓❓❓❓❓
+/*
+https://www.codewars.com/kata/52449b062fb80683ec000024/train/javascript
+
+The Hashtag Generator
+
+The marketing team is spending way too much time typing in hashtags.
+Let's help them with our own Hashtag Generator!
+
+Here's the deal:
+
+It must start with a hashtag (#).
+All words must have their first letter capitalized.
+If the final result is longer than 140 chars it must return false.
+If the input or the result is an empty string it must return false.
+Examples
+" Hello there thanks for trying my Kata"  =>  "#HelloThereThanksForTryingMyKata"
+"    Hello     World   "                  =>  "#HelloWorld"
+""                                        =>  false
+*/
+
+// SOLUTION ✅✅✅✅✅✅
+
+function generateHashtag(str) {
+    let result = str.split(' ')
+        .filter((elem) => elem.length)
+        .map((word) => word[0].toUpperCase() + word.slice(1))
+        .join('');
+    result = (result.length >= 140 || result.length === 0) ? false : '#' + result;
+    return result;
 }
