@@ -17,9 +17,9 @@ pigIt('Hello world !');     // elloHay orldway !
 // SOLUTION ✅✅✅✅✅✅
 
 function pigIt(str) {
-    return str.split(' ')
-        .map((word) => word.slice(1) + word.slice(0, 1) + ((word === '?' || word === '!' || word === '.') ? '' : 'ay'))
-        .join(' ');
+	return str.split(' ')
+		.map((word) => word.slice(1) + word.slice(0, 1) + ((word === '?' || word === '!' || word === '.') ? '' : 'ay'))
+		.join(' ');
 }
 
 
@@ -44,18 +44,18 @@ You can find some examples in the test fixtures.
 // SOLUTION ✅✅✅✅✅✅
 
 function humanReadable(seconds) {
-    if (seconds > 359999) return '99:59:59';
+	if (seconds > 359999) return '99:59:59';
 
-    const ss = formatTime(seconds % 60);
-    const mm = formatTime(Math.trunc(seconds / 60 % 60));
-    const hh = formatTime(Math.trunc(seconds / 3600 % 100));
+	const ss = formatTime(seconds % 60);
+	const mm = formatTime(Math.trunc(seconds / 60 % 60));
+	const hh = formatTime(Math.trunc(seconds / 3600 % 100));
 
-    return `${hh}:${mm}:${ss}`
+	return `${hh}:${mm}:${ss}`
 }
 
 function formatTime(time) {
-    time = time.toString();
-    return (time.length === 1) ? '0' + time : time;
+	time = time.toString();
+	return (time.length === 1) ? '0' + time : time;
 }
 
 
@@ -81,18 +81,18 @@ Examples (input --> output):
 // SOLUTION ✅✅✅✅✅✅
 
 function rgb(r, g, b) {
-    return convertToHex(r) + convertToHex(g) + convertToHex(b);
+	return convertToHex(r) + convertToHex(g) + convertToHex(b);
 }
 
 function convertToHex(num) {
-    let hex = range(num);
-    hex = hex.toString(16);
-    return (hex.length === 1) ? '0' + hex.toUpperCase() : hex.toUpperCase();
+	let hex = range(num);
+	hex = hex.toString(16);
+	return (hex.length === 1) ? '0' + hex.toUpperCase() : hex.toUpperCase();
 }
 
 function range(num) {
-    return ((num < 0) ? '00' :
-        (num > 255) ? 'FF' : num);
+	return ((num < 0) ? '00' :
+		(num > 255) ? 'FF' : num);
 }
 
 
@@ -121,10 +121,50 @@ Examples
 // SOLUTION ✅✅✅✅✅✅
 
 function generateHashtag(str) {
-    let result = str.split(' ')
-        .filter((elem) => elem.length)
-        .map((word) => word[0].toUpperCase() + word.slice(1))
-        .join('');
-    result = (result.length >= 140 || result.length === 0) ? false : '#' + result;
-    return result;
+	let result = str.split(' ')
+		.filter((elem) => elem.length)
+		.map((word) => word[0].toUpperCase() + word.slice(1))
+		.join('');
+	result = (result.length >= 140 || result.length === 0) ? false : '#' + result;
+	return result;
+}
+
+
+
+// 5. ❓❓❓❓❓❓
+/*
+https://www.codewars.com/kata/52bc74d4ac05d0945d00054e/train/javascript
+
+First non-repeating character
+
+Write a function named first_non_repeating_letter† that takes a string input, and returns the first character that
+is not repeated anywhere in the string.
+For example, if given the input 'stress', the function should return 't', since the letter t only occurs once in the
+string, and occurs first in the string.
+As an added challenge, upper- and lowercase letters are considered the same character, but the function should return
+the correct case for the initial letter. For example, the input 'sTreSS' should return 'T'.
+If a string contains all repeating characters, it should return an empty string ("");
+† Note: the function is called firstNonRepeatingLetter for historical reasons, but your function should handle any Unicode character.
+*/
+
+// SOLUTION ✅✅✅✅✅✅
+
+function firstNonRepeatingLetter(s) {
+	const letters = {};
+
+	for (let letter of s) {
+		if (letters[letter.toLowerCase()] === undefined) {
+			letters[letter.toLowerCase()] = { count: 1, firstLetter: letter }
+		} else {
+			letters[letter.toLowerCase()].count += 1;
+		}
+	};
+
+	for (let letter in letters) {
+		if (letters[letter].count === 1) {
+			return letters[letter].firstLetter;
+		}
+	}
+
+	return '';
 }
