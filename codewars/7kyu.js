@@ -89,8 +89,8 @@ be returned as a string, where n is the position of the word in the list.
 For example:
 
 ["yoda", "best", "has"]  -->  "yes"
-  ^        ^        ^
-  n=0     n=1     n=2
+	^        ^        ^
+	n=0     n=1     n=2
 Note: Test cases contain valid input only - i.e. a string array or an empty array; and 
 each word will have enough letters.
 */
@@ -1727,4 +1727,29 @@ function arraySum(arr) {
 	}
 
 	return sum;
+}
+
+
+
+// 41. ❓❓❓❓❓❓
+/*
+https://www.codewars.com/kata/52fba66badcd10859f00097e/train/javascript
+
+Disemvowel Trolls
+
+Trolls are attacking your comment section!
+A common way to deal with this situation is to remove all of the vowels from the trolls' comments, neutralizing the threat.
+Your task is to write a function that takes a string and return a new string with all vowels removed.
+For example, the string "This website is for losers LOL!" would become "Ths wbst s fr lsrs LL!".
+
+Note: for this kata y isn't considered a vowel.
+*/
+
+// SOLUTION ✅✅✅✅✅✅
+
+function disemvowel(str) {
+	return (str.split(' ')
+		.map((word) => word.split('')
+			.filter((letter) => !(['a', 'o', 'e', 'i', 'u'].includes(letter.toLowerCase()))).join(''))
+		.join(' '));
 }
