@@ -16,7 +16,7 @@ Don't forget the space after the closing parentheses!
 // SOLUTION ✅✅✅✅✅✅
 
 function createPhoneNumber(numbers) {
-    return '(' + numbers.slice(0, 3).join('') + ')' + ' ' + numbers.slice(3, 6).join('') + '-' + numbers.slice(6, 10).join('');
+	return '(' + numbers.slice(0, 3).join('') + ')' + ' ' + numbers.slice(3, 6).join('') + '-' + numbers.slice(6, 10).join('');
 }
 
 
@@ -57,24 +57,24 @@ inserted to transform the sum to prime number is (2) , which will make the sum o
 // SOLUTION ✅✅✅✅✅✅
 
 function minimumNumber(numbers) {
-    let sumNumbers = numbers.reduce((sum, n) => sum + n);
-    let i = 0;
+	let sumNumbers = numbers.reduce((sum, n) => sum + n);
+	let i = 0;
 
-    while (true) {
-        if (isEasyNum(sumNumbers)) return i;
-        i++;
-        sumNumbers++;
-    }
+	while (true) {
+		if (isEasyNum(sumNumbers)) return i;
+		i++;
+		sumNumbers++;
+	}
 }
 
 function isEasyNum(n) {
-    nSqrt = Math.trunc(Math.sqrt(n))
+	nSqrt = Math.trunc(Math.sqrt(n))
 
-    for (let i = 2; i <= nSqrt; i++) {
-        if (n % i == 0) return false
-    }
+	for (let i = 2; i <= nSqrt; i++) {
+		if (n % i == 0) return false
+	}
 
-    return true
+	return true
 }
 
 
@@ -113,28 +113,28 @@ Mathematically written as , P6# = 30030 .
 // SOLUTION ✅✅✅✅✅✅
 
 function numPrimorial(num) {
-    let primes = getPrimes(num);
-    return primes.reduce((acc, n) => acc * n, 1);
+	let primes = getPrimes(num);
+	return primes.reduce((acc, n) => acc * n, 1);
 }
 
 function getPrimes(n) {
-    let result = [];
-    for (let i = 2; result.length < n; i++) {
-        if (isPrime(i)) result.push(i)
-    }
-    return result;
+	let result = [];
+	for (let i = 2; result.length < n; i++) {
+		if (isPrime(i)) result.push(i)
+	}
+	return result;
 }
 
 function isPrime(n) {
-    let sqrt = Math.trunc(Math.sqrt(n));
+	let sqrt = Math.trunc(Math.sqrt(n));
 
-    if (n < 2) return false;
+	if (n < 2) return false;
 
-    for (let i = 2; i <= sqrt; i++) {
-        if (!(n % i)) return false;
-    }
+	for (let i = 2; i <= sqrt; i++) {
+		if (!(n % i)) return false;
+	}
 
-    return true;
+	return true;
 }
 
 
@@ -167,14 +167,14 @@ encryptThis("hello world") === "104olle 119drlo"
 // SOLUTION ✅✅✅✅✅✅
 
 var encryptThis = function (text) {
-    return text.split(' ').map((word) => word[0].charCodeAt(0) + (word.length > 1 ? word.slice(-1) : '') + word.slice(2, -1) + (word.length > 2 ? word.charAt(1) : '')).join(' ');
+	return text.split(' ').map((word) => word[0].charCodeAt(0) + (word.length > 1 ? word.slice(-1) : '') + word.slice(2, -1) + (word.length > 2 ? word.charAt(1) : '')).join(' ');
 }
 
 // Best
 
 const encryptThis = text =>
-    text.replace(/\b\w(\w?)(\w*?)(\w?)\b/g, (word, a, mid, b) =>
-        word.charCodeAt(0) + b + mid + a);
+	text.replace(/\b\w(\w?)(\w*?)(\w?)\b/g, (word, a, mid, b) =>
+		word.charCodeAt(0) + b + mid + a);
 
 
 
@@ -203,52 +203,52 @@ Example
 // O(n log n)
 
 function duplicateCount(text) {
-    let count = 0;
-    let textArr = text.toLowerCase().split('');
-    textArr.sort((a, b) => a.localeCompare(b));
+	let count = 0;
+	let textArr = text.toLowerCase().split('');
+	textArr.sort((a, b) => a.localeCompare(b));
 
-    while (textArr.length) {
-        let lastLetter = textArr.pop();
+	while (textArr.length) {
+		let lastLetter = textArr.pop();
 
-        if (textArr.at(-1) === lastLetter) {
-            count++;
+		if (textArr.at(-1) === lastLetter) {
+			count++;
 
-            while (textArr.at(-1) === lastLetter) {
-                textArr.pop();
-            }
-        }
-    }
-    return count;
+			while (textArr.at(-1) === lastLetter) {
+				textArr.pop();
+			}
+		}
+	}
+	return count;
 }
 
 // O(n)
 
 function duplicateCount(text) {
-    const charCount = {};
-    let count = 0;
+	const charCount = {};
+	let count = 0;
 
-    // Приведем все символы к нижнему регистру для учета повторов
-    text = text.toLowerCase();
+	// Приведем все символы к нижнему регистру для учета повторов
+	text = text.toLowerCase();
 
-    // Пройдем по каждому символу в строке
-    for (let char of text) {
-        // Если символ уже встречался, увеличим его счетчик
-        if (charCount[char]) {
-            charCount[char]++;
-        } else {
-            // Иначе установим счетчик для символа равным 1
-            charCount[char] = 1;
-        }
-    }
+	// Пройдем по каждому символу в строке
+	for (let char of text) {
+		// Если символ уже встречался, увеличим его счетчик
+		if (charCount[char]) {
+			charCount[char]++;
+		} else {
+			// Иначе установим счетчик для символа равным 1
+			charCount[char] = 1;
+		}
+	}
 
-    // Посчитаем количество символов, у которых счетчик больше 1
-    for (let char in charCount) {
-        if (charCount[char] > 1) {
-            count++;
-        }
-    }
+	// Посчитаем количество символов, у которых счетчик больше 1
+	for (let char in charCount) {
+		if (charCount[char] > 1) {
+			count++;
+		}
+	}
 
-    return count;
+	return count;
 }
 
 
@@ -275,27 +275,27 @@ Examples
 // Obj
 
 function findOdd(numsArray) {
-    const numObj = {};
+	const numObj = {};
 
-    numsArray.forEach((a) => {
-        return (numObj[a] === undefined) ? numObj[a] = 1 : numObj[a]++;
-    });
+	numsArray.forEach((a) => {
+		return (numObj[a] === undefined) ? numObj[a] = 1 : numObj[a]++;
+	});
 
-    for (let num in numObj) {
-        if (numObj[num] % 2) return +num;
-    }
+	for (let num in numObj) {
+		if (numObj[num] % 2) return +num;
+	}
 }
 
 // Map
 
 function findOdd(A) {
-    const map = new Map();
+	const map = new Map();
 
-    A.forEach((num) => (map.has(num)) ? map.set(num, map.get(num) + 1) : map.set(num, 1));
+	A.forEach((num) => (map.has(num)) ? map.set(num, map.get(num) + 1) : map.set(num, 1));
 
-    for (let [key, value] of map.entries()) {
-        if (value % 2) return key;
-    }
+	for (let [key, value] of map.entries()) {
+		if (value % 2) return key;
+	}
 }
 
 
@@ -320,10 +320,10 @@ Examples:
 // SOLUTION ✅✅✅✅✅✅
 
 function spinWords(string) {
-    return (string.split(' ')
-        .map((word) => word.length >= 5 ? word.split('').reverse().join('') : word)
-        .join(' ')
-    );
+	return (string.split(' ')
+		.map((word) => word.length >= 5 ? word.split('').reverse().join('') : word)
+		.join(' ')
+	);
 }
 
 
@@ -351,13 +351,13 @@ Note: For 4 or more names, the number in "and 2 others" simply increases.
 // SOLUTION ✅✅✅✅✅✅
 
 function likes(names) {
-    return (
-        (names.length === 0) ? 'no one likes this' :
-            (names.length === 1) ? `${names[0]} likes this` :
-                (names.length === 2) ? `${names[0]} and ${names[1]} like this` :
-                    (names.length === 3) ? `${names[0]}, ${names[1]} and ${names[2]} like this` :
-                        `${names[0]}, ${names[1]} and ${names.length - 2} others like this`
-    );
+	return (
+		(names.length === 0) ? 'no one likes this' :
+			(names.length === 1) ? `${names[0]} likes this` :
+				(names.length === 2) ? `${names[0]} and ${names[1]} like this` :
+					(names.length === 3) ? `${names[0]}, ${names[1]} and ${names[2]} like this` :
+						`${names[0]}, ${names[1]} and ${names.length - 2} others like this`
+	);
 }
 
 
@@ -374,8 +374,8 @@ Given n, take the sum of the digits of n. If that value has more than one digit,
 this way until a single-digit number is produced. The input will be a non-negative integer.
 
 Examples
-    16  -->  1 + 6 = 7
-   942  -->  9 + 4 + 2 = 15  -->  1 + 5 = 6
+		16  -->  1 + 6 = 7
+	 942  -->  9 + 4 + 2 = 15  -->  1 + 5 = 6
 132189  -->  1 + 3 + 2 + 1 + 8 + 9 = 24  -->  2 + 4 = 6
 493193  -->  4 + 9 + 3 + 1 + 9 + 3 = 29  -->  2 + 9 = 11  -->  1 + 1 = 2
 */
@@ -383,14 +383,14 @@ Examples
 // SOLUTION ✅✅✅✅✅✅
 
 function digitalRoot(n) {
-    n = n.toString();
+	n = n.toString();
 
-    if (n.length === 1) {
-        return +n;
-    } else {
-        n = n.split('').reduce((acc, num) => acc += +num, 0);
-        return digitalRoot(n);
-    }
+	if (n.length === 1) {
+		return +n;
+	} else {
+		n = n.split('').reduce((acc, num) => acc += +num, 0);
+		return digitalRoot(n);
+	}
 }
 
 
@@ -414,7 +414,7 @@ arrayDiff([1,2,2,2,3],[2]) == [1,3]
 // SOLUTION ✅✅✅✅✅✅
 
 function arrayDiff(a, b) {
-    return a.filter(num => !b.includes(num));
+	return a.filter(num => !b.includes(num));
 }
 
 
@@ -433,6 +433,47 @@ Example: The binary representation of 1234 is 10011010010, so the function shoul
 // SOLUTION ✅✅✅✅✅✅
 
 var countBits = function (n) {
-    return (n).toString(2).split('').reduce((acc, num) => (+num) ? ++acc : acc, 0)
+	return (n).toString(2).split('').reduce((acc, num) => (+num) ? ++acc : acc, 0)
 };
 
+
+
+// 12. ❓❓❓❓❓❓
+/*
+https://www.codewars.com/kata/5aceae374d9fd1266f0000f0/train/javascript
+
+Time Math
+
+Given two times in hours, minutes, and seconds (ie '15:04:24'), add or subtract them. This is a 24 
+hour clock. Output should be two digits for all numbers: hours, minutes, seconds (ie '04:02:09').
+
+timeMath('01:24:31', '+', '02:16:05') === '03:40:36'
+timeMath('01:24:31', '-', '02:31:41') === '22:52:50'
+*/
+
+// SOLUTION ✅✅✅✅✅✅
+
+function timeMath(time1, op, time2) {
+	let date;
+	time1 = Date.parse('01 01 1970 ' + time1 + ' GMT');
+	time2 = Date.parse('01 01 1970 ' + time2 + ' GMT');
+
+	switch (op) {
+		case '+':
+			date = new Date(time1 + time2);
+			break;
+		case '-':
+			date = new Date(time1 - time2);
+			break;
+	}
+
+	let hours = formatDate(date.getUTCHours());
+	let minutes = formatDate(date.getUTCMinutes());
+	let seconds = formatDate(date.getUTCSeconds());
+
+	return `${hours}:${minutes}:${seconds}`;
+}
+
+function formatDate(time) {
+	return (time.toString().length === 1) ? '0' + time : time;
+}
