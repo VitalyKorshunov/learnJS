@@ -168,3 +168,36 @@ function firstNonRepeatingLetter(s) {
 
 	return '';
 }
+
+
+
+// 6. ❓❓❓❓❓❓
+/*
+https://www.codewars.com/kata/52597aa56021e91c93000cb0/train/javascript
+
+Moving Zeros To The End
+
+Write an algorithm that takes an array and moves all of the zeros to the end, preserving the order of the other elements.
+moveZeros([false,1,0,1,2,0,1,3,"a"]) // returns[false,1,1,2,1,3,"a",0,0]
+*/
+
+// SOLUTION ✅✅✅✅✅✅
+
+function moveZeros(arr) {
+	const arrFiltred = arr.filter((num) => num !== 0);
+
+	for (let i = arrFiltred.length; i < arr.length; i++) {
+		arrFiltred.push(0);
+	}
+
+	return arrFiltred;
+}
+
+// Best
+
+function moveZeros(arr) {
+	return [
+		...(arr.filter(n => n !== 0)),
+		...(arr.filter(n => n === 0))
+	];
+}
