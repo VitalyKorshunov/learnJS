@@ -477,3 +477,39 @@ function timeMath(time1, op, time2) {
 function formatDate(time) {
 	return (time.toString().length === 1) ? '0' + time : time;
 }
+
+
+
+// 13. ❓❓❓❓❓❓
+/*
+https://www.codewars.com/kata/546f922b54af40e1e90001da/train/javascript
+
+Replace With Alphabet Position
+
+Welcome.
+
+In this kata you are required to, given a string, replace every letter with its position in the alphabet.
+If anything in the text isn't a letter, ignore it and don't return it.
+"a" = 1, "b" = 2, etc.
+
+Example
+alphabetPosition("The sunset sets at twelve o' clock.")
+Should return "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11" ( as a string )
+*/
+
+// SOLUTION ✅✅✅✅✅✅
+
+function alphabetPosition(text) {
+	const alphabetMap = new Map();
+	for (let i = 'a'.charCodeAt(), j = 1; i <= 'z'.charCodeAt(); i++, j++) {
+		alphabetMap.set(String.fromCharCode(i), j);
+	}
+
+	return (text.toLowerCase()
+		.split('')
+		.reduce((acc, letter) => {
+			if (alphabetMap.has(letter)) { acc.push(alphabetMap.get(letter)) }
+			return acc
+		}, [])
+		.join(' '))
+}
