@@ -82,3 +82,25 @@ FROM
   students
 WHERE
   IsActive = 1;
+
+/* 5. ❓❓❓❓❓❓
+ 
+ https://www.codewars.com/kata/58111670e10b53be31000108/train/sql
+ 
+ SQL Basics: Simple DISTINCT
+ 
+ For this challenge you need to create a simple DISTINCT statement, you want to find all the unique ages.
+ 
+ people table schema
+ id
+ name
+ age
+ select table schema
+ age (distinct)
+ NOTE: Your solution should use pure SQL. Ruby is used within the test cases to do the actual testing.
+ */
+-- SOLUTION ✅✅✅✅✅✅
+SELECT
+  DISTINCT(age)
+FROM
+  people;
