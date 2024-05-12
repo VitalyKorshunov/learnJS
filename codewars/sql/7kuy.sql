@@ -168,6 +168,11 @@ SELECT
 FROM
   names;
 
+SELECT
+  CONCAT_WS(' ', prefix, first, last, suffix) AS title
+FROM
+  names;
+
 /* 7. ❓❓❓❓❓❓
  
  https://www.codewars.com/kata/5a8eb3fb57c562110f0000a1/train/sql
@@ -270,3 +275,38 @@ GROUP BY
 ORDER BY
   count_products_types DESC,
   producer ASC;
+
+/* 10. ❓❓❓❓❓❓
+ 
+ https://www.codewars.com/kata/59401c25c15cbeb58d000028/train/sql
+ 
+ SQL Basics - Trimming the Field
+ 
+ You have access to a table of monsters as follows:
+ 
+ monsters schema
+ 
+ id
+ name
+ legs
+ arms
+ characteristics
+ The monsters in the provided table have too many characteristics, they really only need one each. Your job is to trim the characteristics down so that each monster only has one. If there is only one already, provide that. If there are multiple, provide only the first one (don't leave any commas in there).
+ 
+ You must return a table with the format as follows:
+ 
+ output schema
+ 
+ id
+ name
+ characteristic
+ Order by id
+ */
+SELECT
+  id,
+  name,
+  SPLIT_PART(characteristics, ', ', 1) AS characteristic
+FROM
+  monsters
+ORDER BY
+  id;
