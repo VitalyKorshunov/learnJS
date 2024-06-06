@@ -1997,3 +1997,28 @@ Note: keep the original order of the names in the output.
 function friend(friends) {
 	return friends.filter((name) => name.length == 4);
 }
+
+
+
+// 49. ❓❓❓❓❓❓
+/*
+https://www.codewars.com/kata/5259b20d6021e9e14c0010d4/train/javascript
+
+Reverse words
+
+Complete the function that accepts a string parameter, and reverses each word in the string.
+All spaces in the string should be retained.
+
+Examples
+"This is an example!" ==> "sihT si na !elpmaxe"
+"double  spaces"      ==> "elbuod  secaps"
+*/
+
+// SOLUTION ✅✅✅✅✅✅
+
+function reverseWords(str) {
+	return str
+		.split(' ')
+		.map((word) => word.split('').reverse().join(''))
+		.join(' ');
+}
