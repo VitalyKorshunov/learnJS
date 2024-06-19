@@ -1224,3 +1224,28 @@ Note: input will never be an empty string
 function fakeBin(x) {
   return x.split('').map(x => (x < 5) ? 0 : 1).join('');
 }
+
+
+
+// 44. ❓❓❓❓❓❓
+/*
+https://www.codewars.com/kata/5b077ebdaf15be5c7f000077/train/javascript
+
+If you can't sleep, just count sheep!!
+
+Task:
+Given a non-negative integer, 3 for example, return a string with a murmur: "1 sheep...2 sheep...3 sheep...". 
+Input will always be valid, i.e. no negative integers.
+*/
+
+// SOLUTION ✅✅✅✅✅✅
+
+function countSheep(num) {
+  let murmur = '';
+
+  for (let i = 1; i <= num; i++) {
+    murmur += `${i} sheep...`;
+  }
+
+  return murmur;
+}
