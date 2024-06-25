@@ -710,3 +710,48 @@ function findUniq(arr) {
 		}
 	}
 }
+
+
+
+// 20. ❓❓❓❓❓❓
+/*
+https://www.codewars.com/kata/54b42f9314d9229fd6000d9c/train/javascript
+
+Duplicate Encoder
+
+The goal of this exercise is to convert a string to a new string where each character in the new string 
+is "(" if that character appears only once in the original string, or ")" if that character appears more 
+than once in the original string. Ignore capitalization when determining if a character is a duplicate.
+
+Examples
+"din"      =>  "((("
+"recede"   =>  "()()()"
+"Success"  =>  ")())())"
+"(( @"     =>  "))((" 
+Notes
+Assertion messages may be unclear about what they display in some languages. If you read "...It Should 
+encode XXX", the "XXX" is the expected result, not the input!
+*/
+
+// SOLUTION ✅✅✅✅✅✅
+
+function duplicateEncode(word) {
+	const countWords = {};
+	let result = '';
+	word = word.toLowerCase();
+
+	for (let i = 0; i < word.length; i++) {
+		const char = word[i];
+		if (countWords[char] != undefined) {
+			countWords[char]++;
+		} else {
+			countWords[char] = 1;
+		}
+	}
+
+	for (let i = 0; i < word.length; i++) {
+		result += (countWords[word[i]] === 1) ? '(' : ')';
+	}
+
+	return result;
+}
