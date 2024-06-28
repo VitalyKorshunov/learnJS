@@ -820,3 +820,37 @@ function high(x) {
 		getWordWeight(currentWord) > getWordWeight(maxWord) ? currentWord : maxWord
 	);
 }
+
+
+
+// 23. ❓❓❓❓❓❓
+/*
+https://www.codewars.com/kata/515de9ae9dcfc28eb6000001/train/javascript
+
+Split Strings
+
+Complete the solution so that it splits the string into pairs of two characters. 
+If the string contains an odd number of characters then it should replace the missing second 
+character of the final pair with an underscore ('_').
+
+Examples:
+
+* 'abc' =>  ['ab', 'c_']
+* 'abcdef' => ['ab', 'cd', 'ef']
+*/
+
+// SOLUTION ✅✅✅✅✅✅
+
+function solution(str) {
+	const res = [];
+
+	str = str.split('');
+
+	if (str.length % 2) str.push('_');
+
+	for (let i = 0; i < str.length; i = i + 2) {
+		res.push(str[i] + str[i + 1]);
+	}
+
+	return res;
+}
