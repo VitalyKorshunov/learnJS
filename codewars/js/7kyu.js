@@ -31,15 +31,15 @@ Examples
 // SOLUTION ✅✅✅✅✅✅
 
 function removeSmallest(numbers) {
-	let copyNumbers = numbers.slice(0);
-	let sortNumbers = numbers.slice(0);
+    let copyNumbers = numbers.slice(0);
+    let sortNumbers = numbers.slice(0);
 
-	sortNumbers.sort((a, b) => a - b)
+    sortNumbers.sort((a, b) => a - b)
 
-	if (copyNumbers.includes(sortNumbers[0])) copyNumbers.splice(copyNumbers.indexOf(sortNumbers[0]), 1);
-	if (copyNumbers.length == 1) copyNumbers.length = [0]
+    if (copyNumbers.includes(sortNumbers[0])) copyNumbers.splice(copyNumbers.indexOf(sortNumbers[0]), 1);
+    if (copyNumbers.length == 1) copyNumbers.length = [0]
 
-	return copyNumbers;
+    return copyNumbers;
 }
 
 
@@ -64,15 +64,14 @@ Note that you can receive floats as well.
 // SOLUTION ✅✅✅✅✅✅
 
 function toNumberArray(stringarray) {
-	return stringarray.map(num => +num);
+    return stringarray.map(num => +num);
 }
 
 // Best
 
 function toNumberArray(stringarray) {
-	return stringarray.map(parseFloat);
+    return stringarray.map(parseFloat);
 }
-
 
 
 // 3. ❓❓❓❓❓❓
@@ -98,9 +97,8 @@ each word will have enough letters.
 // SOLUTION ✅✅✅✅✅✅
 
 function nthChar(words) {
-	return words.reduce((newWord, item, index) => newWord + item[index], '')
+    return words.reduce((newWord, item, index) => newWord + item[index], '')
 }
-
 
 
 // 4. ❓❓❓❓❓❓
@@ -151,10 +149,9 @@ Finally ,The Fifth element 900 is the product of all array's elements except the
 // SOLUTION ✅✅✅✅✅✅
 
 function productArray(numbers) {
-	let sum = numbers.reduce((x, y) => x * y);
-	return numbers.map(x => sum / x);
+    let sum = numbers.reduce((x, y) => x * y);
+    return numbers.map(x => sum / x);
 }
-
 
 
 // 5. ❓❓❓❓❓❓
@@ -184,27 +181,26 @@ The minimum sum obtained from summing each two integers product ,  9*0 + 8*2 +7*
 // SOLUTION ✅✅✅✅✅✅
 
 function minSum(arr) {
-	let numsMin = []
-	let numsMax = []
-	let sum = [];
-	arr.sort((a, b) => a - b);
+    let numsMin = []
+    let numsMax = []
+    let sum = [];
+    arr.sort((a, b) => a - b);
 
-	numsMin = arr.slice(0, arr.length / 2)
-	numsMax = arr.slice(arr.length / 2, arr.length).reverse()
+    numsMin = arr.slice(0, arr.length / 2)
+    numsMax = arr.slice(arr.length / 2, arr.length).reverse()
 
-	for (let i = 0; i < numsMin.length; i++) {
-		sum.push(numsMax[i] * numsMin[i])
-	}
+    for (let i = 0; i < numsMin.length; i++) {
+        sum.push(numsMax[i] * numsMin[i])
+    }
 
-	return sum.reduce((acc, elem) => acc + elem, 0)
+    return sum.reduce((acc, elem) => acc + elem, 0)
 }
 
 // Best
 
 function minSum(arr) {
-	return arr.sort((a, b) => a - b).reduce((pre, val) => pre + val * arr.pop(), 0);
+    return arr.sort((a, b) => a - b).reduce((pre, val) => pre + val * arr.pop(), 0);
 }
-
 
 
 // 6. ❓❓❓❓❓❓
@@ -244,9 +240,8 @@ Since the size (k) equal 3 , then the subsequence of size 3 whose gives product 
 // SOLUTION ✅✅✅✅✅✅
 
 function maxProduct(numbers, size) {
-	return numbers.sort((a, b) => b - a).slice(0, size).reduce((acc, num) => acc * num);
+    return numbers.sort((a, b) => b - a).slice(0, size).reduce((acc, num) => acc * num);
 }
-
 
 
 // 7. ❓❓❓❓❓❓
@@ -308,26 +303,25 @@ Note : The last element 2 is greater than the sum of its right elements (abstrac
 // SOLUTION ✅✅✅✅✅✅
 
 function arrayLeaders(numbers) {
-	let map = [];
+    let map = [];
 
-	numbers.forEach((elem, index) => {
-		let tmp = numbers.slice(index + 1)
-		tmp = tmp.reduce((sum, item) => sum + item, 0);
+    numbers.forEach((elem, index) => {
+        let tmp = numbers.slice(index + 1)
+        tmp = tmp.reduce((sum, item) => sum + item, 0);
 
-		if (elem > tmp) {
-			map.push(elem);
-		}
-	})
+        if (elem > tmp) {
+            map.push(elem);
+        }
+    })
 
-	return map;
+    return map;
 }
 
 
 // Best
 let arrayLeaders = numbers => {
-	return numbers.filter((a, i) => numbers.slice(i + 1).reduce((sum, b) => sum + b, 0) < a)
+    return numbers.filter((a, i) => numbers.slice(i + 1).reduce((sum, b) => sum + b, 0) < a)
 }
-
 
 
 // 8. ❓❓❓❓❓❓
@@ -354,13 +348,12 @@ the same case and the second letter will not be before the first alphabetically)
 // SOLUTION ✅✅✅✅✅✅
 
 function gimmeTheLetters(sp) {
-	let str = "";
-	for (let i = sp.charCodeAt(0); i <= sp.charCodeAt(2); i++) {
-		str += (String.fromCharCode(i))
-	}
-	return str
+    let str = '';
+    for (let i = sp.charCodeAt(0); i <= sp.charCodeAt(2); i++) {
+        str += (String.fromCharCode(i))
+    }
+    return str
 }
-
 
 
 // 9. ❓❓❓❓❓❓
@@ -421,19 +414,19 @@ Made by miggycoder, this is my first kata I ever created.
 // SOLUTION ✅✅✅✅✅✅
 
 function stonePick(arr) {
-	let cobblestone = 0;
-	let sticks = 0;
+    let cobblestone = 0;
+    let sticks = 0;
 
-	arr.forEach((item) => {
-		(item == 'Sticks') ? sticks += 1 :
-			(item == 'Wood') ? sticks += 4 :
-				(item == 'Cobblestone') ? cobblestone += 1 :
-					null;
-	});
+    arr.forEach((item) => {
+        (item == 'Sticks') ? sticks += 1 :
+            (item == 'Wood') ? sticks += 4 :
+                (item == 'Cobblestone') ? cobblestone += 1 :
+                    null;
+    });
 
-	let pickaxes = Math.trunc(Math.min((sticks / 2), (cobblestone / 3)));
+    let pickaxes = Math.trunc(Math.min((sticks / 2), (cobblestone / 3)));
 
-	return pickaxes;
+    return pickaxes;
 }
 
 
@@ -476,22 +469,22 @@ Note : duplications are not included when summing , (i.e) the numbers added only
 // SOLUTION ✅✅✅✅✅✅
 
 function maxTriSum(numbers) {
-	let result = [];
+    let result = [];
 
-	for (let num of numbers) {
-		if (!result.includes(num)) result.push(num);
-	}
+    for (let num of numbers) {
+        if (!result.includes(num)) result.push(num);
+    }
 
-	result.sort((a, b) => b - a);
+    result.sort((a, b) => b - a);
 
-	return (result[0] + result[1] + result[2]);
+    return (result[0] + result[1] + result[2]);
 
 }
 
 // Best
 
 function maxTriSum(numbers) {
-	return ([...new Set(numbers)]).sort((a, b) => a - b).slice(-3).reduce((a, b) => a + b);
+    return ([...new Set(numbers)]).sort((a, b) => a - b).slice(-3).reduce((a, b) => a + b);
 }
 
 // 11. ❓❓❓❓❓❓
@@ -528,19 +521,18 @@ The first element 80 is the total weight of team 1, and the second element 0 is 
 // SOLUTION ✅✅✅✅✅✅
 
 function rowWeights(array) {
-	let team1 = 0;
-	let team2 = 0;
+    let team1 = 0;
+    let team2 = 0;
 
-	array.forEach((n, i) => i % 2 ? team2 += n : team1 += n);
+    array.forEach((n, i) => i % 2 ? team2 += n : team1 += n);
 
-	return [team1, team2]
+    return [team1, team2]
 }
 
 
 // Alternative 
 
 rowWeights = arr => arr.reduce((a, b, i) => (a[i % 2] += b, a), [0, 0])
-
 
 
 // 12. ❓❓❓❓❓❓
@@ -585,10 +577,9 @@ Note : Regardless the sign of negativity .
 // SOLUTION ✅✅✅✅✅✅
 
 function maxGap(numbers) {
-	let result = numbers.sort((a, b) => a - b).map((n, i) => isNaN(numbers[i + 1]) ? 0 : Math.abs(numbers[i + 1] - n))
-	return Math.max(...result)
+    let result = numbers.sort((a, b) => a - b).map((n, i) => isNaN(numbers[i + 1]) ? 0 : Math.abs(numbers[i + 1] - n))
+    return Math.max(...result)
 }
-
 
 
 // 13. ❓❓❓❓❓❓
@@ -630,15 +621,14 @@ Expected Time Complexity O(n Log n)
 // SOLUTION ✅✅✅✅✅✅
 
 function minimumSteps(numbers, value) {
-	let sum = 0;
-	numbers.sort((a, b) => a - b);
+    let sum = 0;
+    numbers.sort((a, b) => a - b);
 
-	for (let i = 0; i < numbers.length; i++) {
-		sum += numbers[i];
-		if (sum >= value) return i;
-	}
+    for (let i = 0; i < numbers.length; i++) {
+        sum += numbers[i];
+        if (sum >= value) return i;
+    }
 }
-
 
 
 // 14. ❓❓❓❓❓❓
@@ -671,25 +661,24 @@ The maximum product obtained from multiplying -2 * 7 = -14, and they're adjacent
 // SOLUTION ✅✅✅✅✅✅
 
 function adjacentElementsProduct(array) {
-	return Math.max(...array.map((n, i, arr) => i > 0 ? n * arr[i - 1] : n * arr[i + 1]))
+    return Math.max(...array.map((n, i, arr) => i > 0 ? n * arr[i - 1] : n * arr[i + 1]))
 }
 
 // Best
 
 function adjacentElementsProduct(numbers) {
-	let currentMaxProduct = numbers[0] * numbers[1];
+    let currentMaxProduct = numbers[0] * numbers[1];
 
-	for (let i = 1; i < numbers.length - 1; i++) {
-		const productOfNextAdjacents = numbers[i] * numbers[i + 1];
+    for (let i = 1; i < numbers.length - 1; i++) {
+        const productOfNextAdjacents = numbers[i] * numbers[i + 1];
 
-		if (productOfNextAdjacents > currentMaxProduct) {
-			currentMaxProduct = productOfNextAdjacents;
-		}
-	}
+        if (productOfNextAdjacents > currentMaxProduct) {
+            currentMaxProduct = productOfNextAdjacents;
+        }
+    }
 
-	return currentMaxProduct;
+    return currentMaxProduct;
 }
-
 
 
 // 15. ❓❓❓❓❓❓
@@ -721,15 +710,14 @@ Explanation:
 // SOLUTION ✅✅✅✅✅✅
 
 function minValue(values) {
-	return +[...new Set(values)].sort().join('');
+    return +[...new Set(values)].sort().join('');
 }
 
 // or 
 
 function minValue(values) {
-	return parseInt([...new Set(values)].sort((a, b) => a - b).join(''));
+    return parseInt([...new Set(values)].sort((a, b) => a - b).join(''));
 }
-
 
 
 // 16. ❓❓❓❓❓❓
@@ -782,32 +770,32 @@ sum of all digits to the right of the middle digit(s) -> 20
 // SOLUTION ✅✅✅✅✅✅
 
 function balancedNum(number) {
-	number = [...number.toString(10)];
+    number = [...number.toString(10)];
 
-	if (number.length < 3) return 'Balanced';
+    if (number.length < 3) return 'Balanced';
 
-	if (number.length % 2) {
-		let leftNumsSum = number.slice(0, (number.length - 1) / 2).reduce((sum, n) => sum + +n, 0);
-		let rightNumsSum = number.slice((number.length + 1) / 2, number.length).reduce((sum, n) => sum + +n, 0);
-		return (leftNumsSum == rightNumsSum) ? 'Balanced' : 'Not Balanced';
-	} else {
-		let leftNumsSum = number.slice(0, (number.length) / 2 - 1).reduce((sum, n) => sum + +n, 0);
-		let rightNumsSum = number.slice((number.length) / 2 + 1, number.length).reduce((sum, n) => sum + +n, 0);
-		return (leftNumsSum == rightNumsSum) ? 'Balanced' : 'Not Balanced';
-	}
+    if (number.length % 2) {
+        let leftNumsSum = number.slice(0, (number.length - 1) / 2).reduce((sum, n) => sum + +n, 0);
+        let rightNumsSum = number.slice((number.length + 1) / 2, number.length).reduce((sum, n) => sum + +n, 0);
+        return (leftNumsSum == rightNumsSum) ? 'Balanced' : 'Not Balanced';
+    } else {
+        let leftNumsSum = number.slice(0, (number.length) / 2 - 1).reduce((sum, n) => sum + +n, 0);
+        let rightNumsSum = number.slice((number.length) / 2 + 1, number.length).reduce((sum, n) => sum + +n, 0);
+        return (leftNumsSum == rightNumsSum) ? 'Balanced' : 'Not Balanced';
+    }
 }
 
 // Best
 
 function balancedNum(number) {
 
-	let str = `${number}`
-		, len = (str.length - (str.length % 2 ? -1 : -2)) / 2
-		, sum = digits => [...digits].reduce((a, b) => a + +b, 0);
+    let str = `${number}`
+        , len = (str.length - (str.length % 2 ? -1 : -2)) / 2
+        , sum = digits => [...digits].reduce((a, b) => a + +b, 0);
 
-	return sum(str.slice(0, len)) === sum(str.slice(-len))
-		? 'Balanced'
-		: 'Not Balanced';
+    return sum(str.slice(0, len)) === sum(str.slice(-len))
+        ? 'Balanced'
+        : 'Not Balanced';
 
 }
 
@@ -845,21 +833,20 @@ Since the sum of its digits' factorial of 1! + 5! + 0! = 122 is not equal to num
 // SOLUTION ✅✅✅✅✅✅
 
 function strong(n) {
-	let sumFactorials = [...n.toString()].reduce((sum, n) => sum + factorial(n), 0)
+    let sumFactorials = [...n.toString()].reduce((sum, n) => sum + factorial(n), 0)
 
-	return (sumFactorials == n) ? "STRONG!!!!" : "Not Strong !!";
+    return (sumFactorials == n) ? 'STRONG!!!!' : 'Not Strong !!';
 }
 
 function factorial(n) {
-	let sum = 1;
+    let sum = 1;
 
-	for (let i = 2; i <= n; i++) {
-		sum *= i;
-	}
+    for (let i = 2; i <= n; i++) {
+        sum *= i;
+    }
 
-	return sum;
+    return sum;
 }
-
 
 
 // 18. ❓❓❓❓❓❓
@@ -892,9 +879,9 @@ Since , 51 + 62 + 43 = 105 != 564 , thus output is "Not !!"
 // SOLUTION ✅✅✅✅✅✅
 
 function disariumNumber(n) {
-	return ([...`${n}`].reduce((sum, n, i) => sum + n ** [i + 1], 0) == n) ?
-		'Disarium !!' :
-		'Not !!';
+    return ([...`${n}`].reduce((sum, n, i) => sum + n ** [i + 1], 0) == n) ?
+        'Disarium !!' :
+        'Not !!';
 }
 
 // 19. ❓❓❓❓❓❓
@@ -945,19 +932,18 @@ Adjacent digits differ by 1
 // SOLUTION ✅✅✅✅✅✅
 
 function jumpingNumber(n) {
-	n = n.toString()
-	if (n.length == 1) return 'Jumping!!';
+    n = n.toString()
+    if (n.length == 1) return 'Jumping!!';
 
-	for (let i = 0; i < n.length - 1; i++) {
-		let diff = n[i + 1] - n[i]
+    for (let i = 0; i < n.length - 1; i++) {
+        let diff = n[i + 1] - n[i]
 
-		if (diff > 1 || diff < -1) {
-			return 'Not!!';
-		}
-	}
-	return 'Jumping!!';
+        if (diff > 1 || diff < -1) {
+            return 'Not!!';
+        }
+    }
+    return 'Jumping!!';
 }
-
 
 
 // 20. ❓❓❓❓❓❓
@@ -1006,13 +992,13 @@ specialNumber(709) ==> return "NOT!!"
 // SOLUTION ✅✅✅✅✅✅
 
 function specialNumber(n) {
-	return [...n.toString(10)].every((num) => num <= 5) ? "Special!!" : "NOT!!";
+    return [...n.toString(10)].every((num) => num <= 5) ? 'Special!!' : 'NOT!!';
 }
 
 // Alternative
 
 function specialNumber(n) {
-	return /[6-9]/.test(n) ? "NOT!!" : "Special!!"
+    return /[6-9]/.test(n) ? 'NOT!!' : 'Special!!'
 }
 
 // 21. ❓❓❓❓❓❓
@@ -1064,15 +1050,14 @@ Explanation:
 // SOLUTION ✅✅✅✅✅✅
 
 function automorphic(n) {
-	let square = (n ** 2).toString(10);
-	square = square.slice(square.length - `${n}`.length);
-	return square == n ? "Automorphic" : "Not!!";
+    let square = (n ** 2).toString(10);
+    square = square.slice(square.length - `${n}`.length);
+    return square == n ? 'Automorphic' : 'Not!!';
 }
 
 // Best
 
 const automorphic = n => `${n ** 2}`.endsWith(n) ? `Automorphic` : `Not!!`;
-
 
 
 // 22. ❓❓❓❓❓❓
@@ -1115,15 +1100,14 @@ First and last bits as set bits.
 // SOLUTION ✅✅✅✅✅✅
 
 function extraPerfect(n) {
-	let numbers = [];
+    let numbers = [];
 
-	for (let i = 1; i <= n; i += 2) {
-		numbers.push(i);
-	}
+    for (let i = 1; i <= n; i += 2) {
+        numbers.push(i);
+    }
 
-	return numbers;
+    return numbers;
 }
-
 
 
 // 23. ❓❓❓❓❓❓
@@ -1170,16 +1154,15 @@ The number's digits {2 , 3, 3, 5} are in non-Decreasing Order , Note 3 <= 3
 // SOLUTION ✅✅✅✅✅✅
 
 function tidyNumber(n) {
-	let newNum = n.toString(10).split('').sort((a, b) => a - b).join('');
-	return (newNum == n);
+    let newNum = n.toString(10).split('').sort((a, b) => a - b).join('');
+    return (newNum == n);
 }
 
 // Alternative
 
 function tidyNumber(n) {
-	return [...n += ""].sort().join('') == n
+    return [...n += ''].sort().join('') == n
 }
-
 
 
 // 24. ❓❓❓❓❓❓
@@ -1202,9 +1185,8 @@ Happy Coding!
 // SOLUTION ✅✅✅✅✅✅
 
 function squareDigits(num) {
-	return +[...(`${num}`)].reduce((str, n) => str + n ** 2, '');
+    return +[...(`${num}`)].reduce((str, n) => str + n ** 2, '');
 }
-
 
 
 // 25. ❓❓❓❓❓❓
@@ -1229,18 +1211,17 @@ Output string must be two numbers separated by a single space, and highest numbe
 // SOLUTION ✅✅✅✅✅✅
 
 function highAndLow(numbers) {
-	numbers = numbers.split(' ')
-	let min = +numbers[0];
-	let max = +numbers[0];
+    numbers = numbers.split(' ')
+    let min = +numbers[0];
+    let max = +numbers[0];
 
-	numbers.forEach((num) => {
-		min = (num < min) ? +num : min;
-		max = (num > max) ? +num : max;
-	});
+    numbers.forEach((num) => {
+        min = (num < min) ? +num : min;
+        max = (num > max) ? +num : max;
+    });
 
-	return `${max} ${min}`;
+    return `${max} ${min}`;
 }
-
 
 
 // 26. ❓❓❓❓❓❓
@@ -1264,9 +1245,8 @@ Input: 123456789 Output: 987654321
 // SOLUTION ✅✅✅✅✅✅
 
 function descendingOrder(n) {
-	return +[...`${n}`].sort((a, b) => b - a).join('');
+    return +[...`${n}`].sort((a, b) => b - a).join('');
 }
-
 
 
 // 27. ❓❓❓❓❓❓
@@ -1302,11 +1282,10 @@ The middle character(s) of the word represented as a string.
 // SOLUTION ✅✅✅✅✅✅
 
 function getMiddle(s) {
-	return (s.length % 2 === 0)
-		? s[s.length / 2 - 1] + s[s.length / 2]
-		: s[(s.length - 1) / 2];
+    return (s.length % 2 === 0)
+        ? s[s.length / 2 - 1] + s[s.length / 2]
+        : s[(s.length - 1) / 2];
 }
-
 
 
 // 28. ❓❓❓❓❓❓
@@ -1327,9 +1306,8 @@ The parameter of accum is a string which includes only letters from a..z and A..
 // SOLUTION ✅✅✅✅✅✅
 
 function accum(s) {
-	return s.split('').map((letter, i) => letter.toUpperCase() + letter.repeat(i).toLowerCase()).join('-');
+    return s.split('').map((letter, i) => letter.toUpperCase() + letter.repeat(i).toLowerCase()).join('-');
 }
-
 
 
 // 29. ❓❓❓❓❓❓
@@ -1366,9 +1344,8 @@ Examples
 // SOLUTION ✅✅✅✅✅✅
 
 var isSquare = function (n) {
-	return Number.isInteger(Math.sqrt(n))
+    return Number.isInteger(Math.sqrt(n))
 }
-
 
 
 // 30. ❓❓❓❓❓❓
@@ -1393,11 +1370,10 @@ isIsogram "aba" = false
 // SOLUTION ✅✅✅✅✅✅
 
 function isIsogram(str) {
-	str = str.toLowerCase();
-	let setStr = new Set(str);
-	return str.length === setStr.size;
+    str = str.toLowerCase();
+    let setStr = new Set(str);
+    return str.length === setStr.size;
 }
-
 
 
 // 31. ❓❓❓❓❓❓
@@ -1414,9 +1390,8 @@ String will never be empty and you do not need to account for different data typ
 // SOLUTION ✅✅✅✅✅✅
 
 function findShort(s) {
-	return s.split(' ').reduce((res, word) => res = (res < word.length) ? res : word.length, Infinity)
+    return s.split(' ').reduce((res, word) => res = (res < word.length) ? res : word.length, Infinity)
 }
-
 
 
 // 32. ❓❓❓❓❓❓
@@ -1434,11 +1409,10 @@ For example, when an array is passed like [19, 5, 42, 2, 77], the output should 
 // SOLUTION ✅✅✅✅✅✅
 
 function sumTwoSmallestNumbers(numbers) {
-	const numbersCopy = numbers;
-	numbersCopy.sort((a, b) => a - b);
-	return numbersCopy[0] + numbersCopy[1];
+    const numbersCopy = numbers;
+    numbersCopy.sort((a, b) => a - b);
+    return numbersCopy[0] + numbersCopy[1];
 }
-
 
 
 // 33. ❓❓❓❓❓❓
@@ -1465,29 +1439,28 @@ Your function should only return a number, not the explanation about how you get
 // SOLUTION ✅✅✅✅✅✅
 
 function getSum(a, b) {
-	let sum = 0;
+    let sum = 0;
 
-	if (a === b) {
-		return a;
-	} else if (a > b) {
-		[a, b] = [b, a];
-	}
+    if (a === b) {
+        return a;
+    } else if (a > b) {
+        [a, b] = [b, a];
+    }
 
-	for (let i = a; i <= b; i++) {
-		sum += i;
-	}
+    for (let i = a; i <= b; i++) {
+        sum += i;
+    }
 
-	return sum;
+    return sum;
 }
 
 // Best
 
 const GetSum = (a, b) => {
-	let min = Math.min(a, b),
-		max = Math.max(a, b);
-	return (max - min + 1) * (min + max) / 2;
+    let min = Math.min(a, b),
+        max = Math.max(a, b);
+    return (max - min + 1) * (min + max) / 2;
 }
-
 
 
 // 34. ❓❓❓❓❓❓
@@ -1510,17 +1483,16 @@ Examples
 // SOLUTION ✅✅✅✅✅✅
 
 function stray(numbers) {
-	const obj = {};
+    const obj = {};
 
-	numbers.forEach((a) => {
-		return (obj[a] === undefined) ? obj[a] = 1 : obj[a]++;
-	});
+    numbers.forEach((a) => {
+        return (obj[a] === undefined) ? obj[a] = 1 : obj[a]++;
+    });
 
-	for (let num in obj) {
-		if (obj[num] == 1) return +num;
-	}
+    for (let num in obj) {
+        if (obj[num] == 1) return +num;
+    }
 }
-
 
 
 // 35. ❓❓❓❓❓❓
@@ -1548,14 +1520,13 @@ You can see other examples for each language in "Your test cases"
 // SOLUTION ✅✅✅✅✅✅
 
 function partlist(arr) {
-	let newArr = [];
-	for (let i = 1; i < arr.length; i++) {
-		newArr.push([arr.slice(0, i).join(' '), arr.slice(i).join(' ')]);
-	}
+    let newArr = [];
+    for (let i = 1; i < arr.length; i++) {
+        newArr.push([arr.slice(0, i).join(' '), arr.slice(i).join(' ')]);
+    }
 
-	return newArr;
+    return newArr;
 }
-
 
 
 // 36. ❓❓❓❓❓❓
@@ -1575,12 +1546,11 @@ The input string will only consist of lower case letters and/or spaces.
 // SOLUTION ✅✅✅✅✅✅
 
 function getCount(str) {
-	const vowelsArr = ['a', 'e', 'i', 'o', 'u'];
+    const vowelsArr = ['a', 'e', 'i', 'o', 'u'];
 
-	return str.split('').filter((letter) => vowelsArr.includes(letter)).length;
+    return str.split('').filter((letter) => vowelsArr.includes(letter)).length;
 
 }
-
 
 
 // 37. ❓❓❓❓❓❓
@@ -1620,25 +1590,24 @@ You should return an integer, not an array with 1 element
 // SOLUTION ✅✅✅✅✅✅
 
 function setReducer(input) {
-	if (input.length == 1) {
-		return input[0];
-	} else {
-		const result = [];
-		let repeats = 1;
+    if (input.length == 1) {
+        return input[0];
+    } else {
+        const result = [];
+        let repeats = 1;
 
-		for (let i = 1; i <= input.length; i++) {
-			if (input[i] === input[i - 1]) {
-				repeats++;
-			} else {
-				result.push(repeats)
-				repeats = 1;
-			}
-		}
+        for (let i = 1; i <= input.length; i++) {
+            if (input[i] === input[i - 1]) {
+                repeats++;
+            } else {
+                result.push(repeats)
+                repeats = 1;
+            }
+        }
 
-		return setReducer(result);
-	}
+        return setReducer(result);
+    }
 }
-
 
 
 // 38. ❓❓❓❓❓❓
@@ -1658,13 +1627,12 @@ As tempting as it may seem, do not use loops to solve this problem.
 // SOLUTION ✅✅✅✅✅✅
 
 function replicate(times, number) {
-	if (times < 1) {
-		return [];
-	} else {
-		return [number].concat(replicate(times - 1, number));
-	}
+    if (times < 1) {
+        return [];
+    } else {
+        return [number].concat(replicate(times - 1, number));
+    }
 }
-
 
 
 // 39. ❓❓❓❓❓❓
@@ -1693,13 +1661,12 @@ You have to create the function fibonacci that receives n and returns f(n). You 
 // SOLUTION ✅✅✅✅✅✅
 
 const fibonacci = n => {
-	if (n <= 2) {
-		return 1;
-	} else {
-		return fibonacci(n - 1) + fibonacci(n - 2);
-	}
+    if (n <= 2) {
+        return 1;
+    } else {
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
 };
-
 
 
 // 40. ❓❓❓❓❓❓
@@ -1716,19 +1683,18 @@ Ignore all other types of values.
 // SOLUTION ✅✅✅✅✅✅
 
 function arraySum(arr) {
-	let sum = 0;
+    let sum = 0;
 
-	for (elem of arr) {
-		if (Array.isArray(elem)) {
-			sum += arraySum(elem);
-		} else if (typeof elem === 'number') {
-			sum += elem;
-		}
-	}
+    for (elem of arr) {
+        if (Array.isArray(elem)) {
+            sum += arraySum(elem);
+        } else if (typeof elem === 'number') {
+            sum += elem;
+        }
+    }
 
-	return sum;
+    return sum;
 }
-
 
 
 // 41. ❓❓❓❓❓❓
@@ -1748,12 +1714,11 @@ Note: for this kata y isn't considered a vowel.
 // SOLUTION ✅✅✅✅✅✅
 
 function disemvowel(str) {
-	return (str.split(' ')
-		.map((word) => word.split('')
-			.filter((letter) => !(['a', 'o', 'e', 'i', 'u'].includes(letter.toLowerCase()))).join(''))
-		.join(' '));
+    return (str.split(' ')
+        .map((word) => word.split('')
+            .filter((letter) => !(['a', 'o', 'e', 'i', 'u'].includes(letter.toLowerCase()))).join(''))
+        .join(' '));
 }
-
 
 
 // 42. ❓❓❓❓❓❓
@@ -1783,15 +1748,14 @@ Examples (input --> output):
 // SOLUTION ✅✅✅✅✅✅
 
 function maskify(cc) {
-	return (cc.length < 5) ? cc : '#'.repeat(cc.length - 4) + cc.slice(-4);
+    return (cc.length < 5) ? cc : '#'.repeat(cc.length - 4) + cc.slice(-4);
 }
 
 // BEST 
 
 function maskify(cc) {
-	return cc.slice(-4).padStart(cc.length, '#')
+    return cc.slice(-4).padStart(cc.length, '#')
 }
-
 
 
 // 43. ❓❓❓❓❓❓
@@ -1828,11 +1792,10 @@ b may be greater than the length of items.
 // SOLUTION ✅✅✅✅✅✅
 
 function inverseSlice(items, a, b) {
-	const itemsCopy = items.slice();
-	itemsCopy.splice(a, b - a)
-	return itemsCopy;
+    const itemsCopy = items.slice();
+    itemsCopy.splice(a, b - a)
+    return itemsCopy;
 }
-
 
 
 // 44. ❓❓❓❓❓❓
@@ -1852,9 +1815,8 @@ solution('abc', 'd') // returns false
 // SOLUTION ✅✅✅✅✅✅
 
 function solution(str, ending) {
-	return str.endsWith(ending)
+    return str.endsWith(ending)
 }
-
 
 
 // 45. ❓❓❓❓❓❓
@@ -1878,31 +1840,30 @@ Examples
 // SOLUTION ✅✅✅✅✅✅
 
 let isAnagram = function (test, original) {
-	if (test.length !== original.length) return false;
+    if (test.length !== original.length) return false;
 
-	test = test.toLowerCase().split('');
-	original = original.toLowerCase().split('');
+    test = test.toLowerCase().split('');
+    original = original.toLowerCase().split('');
 
-	return original
-		.every((letter) => {
-			if (test.includes(letter)) {
-				test[test.indexOf(letter)] = '';
-				return true;
-			} else {
-				return false;
-			}
-		});
+    return original
+        .every((letter) => {
+            if (test.includes(letter)) {
+                test[test.indexOf(letter)] = '';
+                return true;
+            } else {
+                return false;
+            }
+        });
 };
 
 // Best
 
 var isAnagram1 = function (test, original) {
-	test = test.toLowerCase().split('').sort().join('');
-	original = original.toLowerCase().split('').sort().join('');
+    test = test.toLowerCase().split('').sort().join('');
+    original = original.toLowerCase().split('').sort().join('');
 
-	return test === original;
+    return test === original;
 };
-
 
 
 // 46. ❓❓❓❓❓❓
@@ -1926,12 +1887,11 @@ longest(a, a) -> "abcdefghijklmnopqrstuvwxyz"
 // SOLUTION ✅✅✅✅✅✅
 
 function longest(s1, s2) {
-	const set = new Set((s1 + s2).split(''));
-	const result = Array.from(set.values()).sort().join('');
+    const set = new Set((s1 + s2).split(''));
+    const result = Array.from(set.values()).sort().join('');
 
-	return result
+    return result
 }
-
 
 
 // 47. ❓❓❓❓❓❓
@@ -1961,17 +1921,16 @@ output = ["Open", "Open", "Senior", "Open", "Open", "Senior"]
 // SOLUTION ✅✅✅✅✅✅
 
 function openOrSenior(data) {
-	const result = [];
-	for (let i = 0; i < data.length; i++) {
-		let age = data[i][0];
-		let handicap = data[i][1];
+    const result = [];
+    for (let i = 0; i < data.length; i++) {
+        let age = data[i][0];
+        let handicap = data[i][1];
 
-		result.push((age >= 55 && handicap > 7) ? 'Senior' : 'Open');
-	}
+        result.push((age >= 55 && handicap > 7) ? 'Senior' : 'Open');
+    }
 
-	return result;
+    return result;
 }
-
 
 
 // 48. ❓❓❓❓❓❓
@@ -1995,9 +1954,8 @@ Note: keep the original order of the names in the output.
 // SOLUTION ✅✅✅✅✅✅
 
 function friend(friends) {
-	return friends.filter((name) => name.length == 4);
+    return friends.filter((name) => name.length == 4);
 }
-
 
 
 // 49. ❓❓❓❓❓❓
@@ -2017,12 +1975,11 @@ Examples
 // SOLUTION ✅✅✅✅✅✅
 
 function reverseWords(str) {
-	return str
-		.split(' ')
-		.map((word) => word.split('').reverse().join(''))
-		.join(' ');
+    return str
+        .split(' ')
+        .map((word) => word.split('').reverse().join(''))
+        .join(' ');
 }
-
 
 
 // 50. ❓❓❓❓❓❓
@@ -2049,9 +2006,8 @@ have to decide how to order multiple strings of the same length.
 // SOLUTION ✅✅✅✅✅✅
 
 function sortByLength(array) {
-	return array.slice().sort((a, b) => a.length - b.length);
+    return array.slice().sort((a, b) => a.length - b.length);
 }
-
 
 
 // 51. ❓❓❓❓❓❓
@@ -2073,9 +2029,8 @@ to split). Input will always be a non-negative integer.
 // SOLUTION ✅✅✅✅✅✅
 
 function breakChocolate(n, m) {
-	return (n > 0 && m > 0) ? n * m - 1 : 0;
+    return (n > 0 && m > 0) ? n * m - 1 : 0;
 }
-
 
 
 // 52. ❓❓❓❓❓❓
@@ -2110,10 +2065,9 @@ printer_error(s) => "8/22"
 // SOLUTION ✅✅✅✅✅✅
 
 function printerError(s) {
-	const errors = s.split('').reduce((n, char) => ('abcdefghijklm'.includes(char)) ? n : ++n, 0);
-	return `${errors}/${s.length}`;
+    const errors = s.split('').reduce((n, char) => ('abcdefghijklm'.includes(char)) ? n : ++n, 0);
+    return `${errors}/${s.length}`;
 }
-
 
 
 // 53. ❓❓❓❓❓❓
@@ -2136,9 +2090,8 @@ Examples:(Input1, Input2 --> Output (explanation)))
 // SOLUTION ✅✅✅✅✅✅
 
 function addBinary(a, b) {
-	return (a + b).toString(2);
+    return (a + b).toString(2);
 }
-
 
 
 // 54. ❓❓❓❓❓❓
@@ -2162,9 +2115,8 @@ Examples: (Input --> Output)
 // SOLUTION ✅✅✅✅✅✅
 
 var number = function (array) {
-	return array.map((e, i) => `${i + 1}: ${e}`);
+    return array.map((e, i) => `${i + 1}: ${e}`);
 }
-
 
 
 // 55. ❓❓❓❓❓❓
@@ -2193,9 +2145,8 @@ However, the arrays can have varying lengths, not just limited to 4.
 // SOLUTION ✅✅✅✅✅✅
 
 const binaryArrayToNumber = arr => {
-	return parseInt(arr.join(''), 2);
+    return parseInt(arr.join(''), 2);
 };
-
 
 
 // 56. ❓❓❓❓❓❓
@@ -2218,5 +2169,41 @@ The second value in the first pair in the array is 0, since the bus is empty in 
 // SOLUTION ✅✅✅✅✅✅
 
 var number = function (busStops) {
-	return busStops.reduce((sum, elem) => sum += elem[0] - elem[1], 0);
+    return busStops.reduce((sum, elem) => sum += elem[0] - elem[1], 0);
+}
+
+
+// 57. ❓❓❓❓❓❓
+/*
+https://www.codewars.com/kata/5813d19765d81c592200001a/train/javascript
+
+Don't give me five!
+
+Don't give me five!
+In this kata you get the start number and the end number of a region and should return the count of all numbers except numbers with a 5 in it. The start and the end number are both inclusive!
+
+Examples:
+
+1,9 -> 1,2,3,4,6,7,8,9 -> Result 8
+4,17 -> 4,6,7,8,9,10,11,12,13,14,16,17 -> Result 12
+The result may contain fives. ;-)
+The start number will always be smaller than the end number. Both numbers can be also negative!
+
+I'm very curious for your solutions and the way you solve it. Maybe someone of you will find an easy pure mathematics solution.
+
+Have fun coding it and please don't forget to vote and rank this kata! :-)
+
+I have also created other katas. Take a look if you enjoyed this kata!
+*/
+
+// SOLUTION ✅✅✅✅✅✅
+
+function dontGiveMeFive(start, end) {
+    let result = [];
+
+    for (let i = start; i <= end; i++) {
+        if (!i.toString(10).includes('5')) result.push(i);
+    }
+
+    return result.length;
 }
